@@ -111,10 +111,10 @@ dictionary.items() #return dict_items([(1, 'one'), (2, 'two')])，外面再套�
 len(dictionary) #return the length of dictionary
 
 dict(nested_list or list_tuple or nested_tuple) #change list or tuple to dictionary
-	>>> dict([(1,2),(3,4)])
-    {1: 2, 3: 4}
-    >>> dict([[1,2],[3,4]])
-    {1: 2, 3: 4}
+	#>>> dict([(1,2),(3,4)])
+	#{1: 2, 3: 4}
+	#>>> dict([[1,2],[3,4]])
+	#{1: 2, 3: 4}
 ```
 
 ### list与dict的关系
