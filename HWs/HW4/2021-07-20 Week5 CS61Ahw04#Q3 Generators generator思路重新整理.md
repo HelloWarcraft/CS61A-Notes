@@ -1,6 +1,6 @@
 # CS61A/hw04/#Q3: Generators generator思路重新整理 
 
-自己对iterator和generator的理解还是不够深刻，所以做完花半小时反思这个题，重新回顾一遍，加深记忆与理解
+自己对iterator和generator的理解还是不够深刻，所以做完重新花半小时回顾一遍，加深记忆与理解，题目链接：[Homework 4 | CS 61A Summer 2021](https://cs61a.org/hw/hw04/#q3)
 
 ## 先概览题目
 
