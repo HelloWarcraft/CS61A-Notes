@@ -43,6 +43,8 @@ def f(x):
 
 ### 一般递归
 
+用factorial来计算x的阶乘，python里`factorial(5)`是120，scheme里`(factorial 5)`的结果是120：
+
 ```python
 # python
 def factorial(x):
@@ -68,7 +70,7 @@ def factorial(x):
 
 ```
 
-
+Fibonacci number，`fib(n)`写完后，转化为scheme的`(fib n)`，结果如下：
 
 ```python
 # python
@@ -78,8 +80,6 @@ def fib(n):
     else
     	return fib(n-1)+fib(n-2)
 ```
-
-
 
 
 
@@ -108,8 +108,6 @@ def fib(n):
 ### 关于list的递归调用
 
 先回忆scheme里的list的一些关键字用法
-
-
 
 
 |                | Scheme                  | Python                    |
