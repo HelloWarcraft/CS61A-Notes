@@ -272,7 +272,12 @@ scm> (quote (1 2))
 实现如下输入输出的结果：
 
 ```scheme
-scm> 'hellohelloscm> '(1 2)(1 2)scm> '(1 (2 three (4 5)))(1 (2 three (4 5)))
+scm> 'hello
+hello
+scm> '(1 2)
+(1 2)
+scm> '(1 (2 three (4 5)))
+(1 (2 three (4 5)))
 ```
 
 即，用`'`来表示scheme list，也要保存为 Pair('quote', ...)的格式，当val=="'"的时候，只需要`>>> 'hello -> (quote hello)`即可，如果`val=="'"`，则`src=["hello"]`，因此直接Pair list的第一个元素是'quote'，第二个元素就是"hello"，这个"hello"需要用Pair表示，即`Pair("hello", nil)`，同时它外面套一个`Pair('quote', ...)`。`src=["hello"] - > Pair("hello", nil)`的方法就是用`scheme_reader(src)`。
