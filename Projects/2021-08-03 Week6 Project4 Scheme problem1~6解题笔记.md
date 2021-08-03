@@ -126,9 +126,9 @@ How to handle combinations? lecture slides里介绍的有：`if` `lambda` `defin
 	if scheme_symbolp(first) and first in SPECIAL_FORMS:
         # 这里是special forms，first如果不是special forms就是普通call expression
         # 检索了一下SPECIAL_FORMS ，发现它是一个字典，除了存if lambda define还有and or cond begin等
-        return SPECIAL_FORMS[first](rest, env)
+        	return SPECIAL_FORMS[first](rest, env)
         # 处理if lambda和define，其他情况是普通的call expression
-    else:
+	else:
         # BEGIN PROBLEM 4
         "*** YOUR CODE HERE ***"
         # scheme_eval的代码在John的video里就有，但是else里的一点也没有出现
@@ -200,7 +200,9 @@ scm> (1 (print 0)) ; validate_procedure should be called before operands are eva
 
 - 只有把第三种情况转为value，这样的rest才可以作为无嵌套的scheme list，从而作为operands
 
-这样operantor就用scheme_eval(first,env)来搞定，而scheme_eval(rest,env)则要把rest里每一个元素都转成value，因此用rest.map(fn)，fn用lambda
+这样`operantor`就用`scheme_eval(first,env)`来搞定，而`scheme_eval(rest,env)`则要把rest里每一个元素都转成`value`，因此用`rest.map(fn)`，`fn`用`lambda`来输入`rest`并输出Pair linked list的`rest_value`。
+
+同时要注意` validate_procedure(operator)`来确保 `operator`确实是`Procedure`的instance(hint提醒要用这个函数)。
 
 ​    
 
@@ -252,7 +254,7 @@ scm> (eval '((lambda (x) (* x x)) 2) )
 4
 ```
 
-
+（这个problem6的doctest引导性不是特别强，unlock也不是很有启发，跟着description看才是王道。
 
 之后阅读description，首先要实现如下输入输出的结果：
 
@@ -270,13 +272,8 @@ scm> (quote (1 2))
 实现如下输入输出的结果：
 
 ```scheme
-scm> 'hello
-hello
-scm> '(1 2)
-(1 2)
-scm> '(1 (2 three (4 5)))
-(1 (2 three (4 5)))
+scm> 'hellohelloscm> '(1 2)(1 2)scm> '(1 (2 three (4 5)))(1 (2 three (4 5)))
 ```
 
-即，用`'`来表示scheme list，也要保存为 Pair('quote', ...)的格式，当val=="'"的时候，只需要`>>> 'hello -> (quote hello)`即可
+即，用`'`来表示scheme list，也要保存为 Pair('quote', ...)的格式，当val=="'"的时候，只需要`>>> 'hello -> (quote hello)`即可，如果`val=="'"`，则`src=["hello"]`，因此直接Pair list的第一个元素是'quote'，第二个元素就是"hello"，这个"hello"需要用Pair表示，即`Pair("hello", nil)`，同时它外面套一个`Pair('quote', ...)`。`src=["hello"] - > Pair("hello", nil)`的方法就是用`scheme_reader(src)`。
 
