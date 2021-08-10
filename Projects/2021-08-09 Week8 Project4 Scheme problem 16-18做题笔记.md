@@ -125,11 +125,14 @@ scm> (let-to-lambda '(lambda (x) a (let ((a x)) a)))
 # but got
 #     (lambda (x) a (let ((a x)) a))
 ```
-ps: 上面的问题会进入在于`else`的case里，而不是进入let
 
-```scheme
- (cons (let-to-lambda (car expr)) (let-to-lambda (cdr expr)))
-          ;((lambda (a) a) x), (lambda (a) a) suits this case
-```
+
+
+> ps: 上面的问题会进入在于`else`的case里，而不是进入let
+>
+> ```scheme
+>  (cons (let-to-lambda (car expr)) (let-to-lambda (cdr expr)))
+>           ;((lambda (a) a) x), (lambda (a) a) suits this case
+> ```
 
 
